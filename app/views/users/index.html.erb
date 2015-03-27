@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,600,700,300' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+</head>
+<body>
+
+	<header role="banner">
+		<div class="container">
+			<nav role="navigation"><i class="fa fa-bars fa-2x"></i><div class="header-text"><span class="nerd">nerd</span><span class="pong">pong</span></div></nav>
+		</div>
+	</header>
+	<main role="main">
+		<div class="container">
+			<%=link_to image_tag('twittericon.png'), @url, class: 'twit'%>
+		</div>
+	</main>
+	<footer>
+		<div class="container"></div>
+	</footer>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.10.1.min.js"><\/script>')</script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+body {
+	background: url(beerpongbg.jpg) no-repeat top;
+	background-size: cover;
+	min-height: 800px;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
+	
+}
+span.nerd {
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 700;
+		font-size: 2em;
+	}
+	.pong {
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 300;
+		font-size: 2em;
+	}
+.header-text{
+	text-align: center;
+}
+.twit {
+
+	position: absolute;
+	top: 250px;
+	margin: 0 auto;
+	height: 40px;
+	width:100%;
+	text-align: center;
+}
