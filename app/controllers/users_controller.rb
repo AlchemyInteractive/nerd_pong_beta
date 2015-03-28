@@ -8,6 +8,7 @@ class UsersController < ApplicationController
       redirect_to brackets_path
       return
     end
+
     render :front
   end
 
