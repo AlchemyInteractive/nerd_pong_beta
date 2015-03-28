@@ -19,12 +19,17 @@ span.nerd {
 .header-text{
 	text-align: center;
 }
+.container> a {
+	margin: 0 auto;
+	height: 40px;
+	width:90%;
+	}
 .twit {
 
 	position: absolute;
 	top: 250px;
 	margin: 0 auto;
 	height: 40px;
-	width:100%;
+	
 	text-align: center;
 }
