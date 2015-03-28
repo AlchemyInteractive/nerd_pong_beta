@@ -11,13 +11,10 @@ class UsersController < ApplicationController
 
     render :front
   end
-
-  def authenticate
-
-  end
   
   def oauth_callback
-    render 'update_user'
+    binding.pry
+    redirect_to brackets_path
   end
   
   def update_user

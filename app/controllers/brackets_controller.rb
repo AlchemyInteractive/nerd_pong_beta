@@ -5,6 +5,7 @@ class BracketsController < ApplicationController
     end 
     
     b = Bracket.all.detect{|i| i.open == true} 
+
     if b
       check = check_for_user_in_bracket(@user, eval(b.bracket))
     else
@@ -41,4 +42,6 @@ class BracketsController < ApplicationController
     end
     false
   end 
+
+
 end

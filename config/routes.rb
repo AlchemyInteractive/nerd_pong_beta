@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
+  root 'sessions#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -54,9 +54,8 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   resources :users
-  get '/oauth_callback', to: 'users#oauth_callback'
   resources :brackets
 
-  get '/oauth_callback', to: 'users#oauth_callback'
+  get '/auth/twitter/callback', to: 'sessions#create'
 
 end
