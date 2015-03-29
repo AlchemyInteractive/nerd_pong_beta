@@ -7,8 +7,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header role="banner">
+	<div class="container">
+		<nav role="navigation">
+	
+			<div class="hamburger">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
 
+			<nav class="mobile">
+			  <button>Toggle</button>
+			  <div>
+			    <a href="#">Mobile 1</a>
+			    <a href="#">Mobile 2</a>
+			    <a href="#">Mobile 3</a>
+			    <a href="#">Mobile 4</a>
+			  </div>
+			</nav>
+			<div><% if current_user %> Signed in as <%= current_user.name %><% end %></div>
+			<div class="header-text">
+				<span class="nerd">nerd</span><span class="pong">pong</span>
+			</div>
+		</nav>
+	</div>
+</header>
 <%= yield %>
 
 </body>
+<script>
+$('button').click(function() {
+  $(this).toggleClass('expanded').siblings('div').slideToggle();
+});
+</script>
 </html>

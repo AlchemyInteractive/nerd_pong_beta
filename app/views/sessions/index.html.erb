@@ -12,18 +12,6 @@
 	<!--[if lt IE 9]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
 </head>
 <body>
-
-	<header role="banner">
-		<div class="container">
-			<nav role="navigation"><%= icon('bars', '', class: 'fa-2x') %>
-<% if current_user %>
-				Signed in as <%= current_user.name %>
-			<% end %>
-			<div class="header-text">
-			
-			<span class="nerd">nerd</span><span class="pong">pong</span></div></nav>
-		</div>
-	</header>
 	<main role="main">
 		<div class="container">
 			<%=link_to image_tag('twittericon.png', class: 'twit'), '/auth/twitter'%>

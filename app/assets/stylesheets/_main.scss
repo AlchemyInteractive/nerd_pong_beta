@@ -4,8 +4,10 @@ body {
 	min-height: 800px;
 	color: #fff;
 	font-family: 'Open Sans', sans-serif;
+	overflow-x:hidden;
 	
 }
+// Main Header Text
 span.nerd {
 		font-family: 'Open Sans', sans-serif;
 		font-weight: 700;
@@ -16,9 +18,11 @@ span.nerd {
 		font-weight: 300;
 		font-size: 2em;
 	}
+
 .header-text{
 	text-align: center;
 }
+// Container for mainpage
 .container> a {
 	margin: 0 auto;
 	height: 40px;
@@ -32,4 +36,8 @@ span.nerd {
 	height: 40px;
 	
 	text-align: center;
+}
+#mask {
+	width: 500%;
+	height: 100%;
 }

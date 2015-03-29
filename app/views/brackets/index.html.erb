@@ -1,13 +1,5 @@
-
-<header role="banner">
-	<div class="container">
-		<nav role="navigation"><%= icon('bars', '', class: 'fa-2x') %>
-		<% if current_user %> Signed in as <%= current_user.name %><% end %>
-	<div class="header-text">
-		<span class="nerd">nerd</span><span class="pong">pong</span></div></nav>
-	</div>
-</header>
 <main role="main">
+	<h3>1st Round</h3>
 	<div class="bracket">
 	<% @game[1][0][0].each_slice(2) do |p| %>
 	<ul>
@@ -15,13 +7,30 @@
 			<% p.each do |e| %>
 			<li>
 				<%= image_tag(e.profile_image, class: 'profile-pic') %><br>
-				<%=truncate(e.name, length:8) %>
+				<%=e.name %>
+				<div class="profile-info" style="display: none;">
+				<ul>
+					<li><%=e.name %></li>
+					
+				</ul>
+			</div>
 			</li> 
 			<% end %>
 			<%#= @game %>
+			
 		</div>
 	</ul>
 	<% end %>
 	</div>
 </main>
+<script>
+$(document).ready(function() {
+
+	$('li').click(
+		function(){
+			$('.profile-info').animate({opacity:'toggle'}, 400);
+	});
+});
+
+</script>
 

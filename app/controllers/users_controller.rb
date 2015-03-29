@@ -16,8 +16,10 @@ class UsersController < ApplicationController
     binding.pry
     redirect_to brackets_path
   end
-  
-  def update_user
 
+  def update
+    @user = current_user
+    @user.update_attributes(params[:user].permit(:name))
+     redirect_to brackets_path
   end
 end
