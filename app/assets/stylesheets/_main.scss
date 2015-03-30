@@ -1,16 +1,15 @@
 body {
 	background: url(beerpongbg.jpg) no-repeat top;
 	background-size: cover;
-	min-height: 800px;
+	min-height: 900px;
 	color: #fff;
 	font-family: 'Open Sans', sans-serif;
-	overflow-x:hidden;
 	
 }
 // Main Header Text
 span.nerd {
 		font-family: 'Open Sans', sans-serif;
-		font-weight: 700;
+		font-weight: 600;
 		font-size: 2em;
 	}
 	.pong {
@@ -23,20 +22,17 @@ span.nerd {
 	text-align: center;
 }
 // Container for mainpage
-.container> a {
-	margin: 0 auto;
-	height: 40px;
-	width:90%;
-	}
-.twit {
-
-	position: absolute;
-	top: 250px;
-	margin: 0 auto;
-	height: 40px;
-	
+.twitter-container{
+	margin-top: 50%;
+	width: 100%;
 	text-align: center;
+	#twit a {
+	margin: 0 auto;
+	width:90%;
+
+	}
 }
+
 #mask {
 	width: 500%;
 	height: 100%;

@@ -1,0 +1,40 @@
+.user-container {
+	margin: 10% 2%;
+	text-align: center;
+}
+.profile-img-lg {
+	margin: 5px 0 20px 0;
+	width: 150px;
+	border-radius: 100px;
+}
+.update-btn {
+	background-color: #4B849F;
+	padding: 10px 12px;
+	color: #fff;
+	font-size: 12px; 
+	letter-spacing: 8px;
+	font-family: 'open sans';
+	font-weight: 100;
+	border: none;
+}
+.name-field {
+	display: inline;
+	.input-name {
+		background-color: #BCBCBC;
+		color: #666666;
+		padding: 8px;
+		border: none;
+		font-size: 18px;
+		vertical-align: top;
+	}
+}
+.actions {display: inline;}
+
+.bottom-nav {
+	margin-top: 30%;
+	text-align: center;
+	li {
+		display: inline-block;
+		padding: 10px;
+	}
+}

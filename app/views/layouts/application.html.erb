@@ -18,15 +18,14 @@
 			</div>
 
 			<nav class="mobile">
-			  <button>Toggle</button>
-			  <div>
-			    <a href="#">Mobile 1</a>
-			    <a href="#">Mobile 2</a>
-			    <a href="#">Mobile 3</a>
-			    <a href="#">Mobile 4</a>
+			  <button>Menu</button>
+			  <div class="hamburger-menu">
+			  	<%=link_to 'Home', root_path %>
+			  	<%=link_to 'Bracket', brackets_path %>
+			    <%=link_to 'Settings', edit_user_path(current_user.id) %>
 			  </div>
 			</nav>
-			<div><% if current_user %> Signed in as <%= current_user.name %><% end %></div>
+			<!-- <div><%# if current_user %> Signed in as <%= current_user.name %><%# end %></div> -->
 			<div class="header-text">
 				<span class="nerd">nerd</span><span class="pong">pong</span>
 			</div>

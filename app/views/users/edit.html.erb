@@ -1,19 +1,30 @@
-<%= form_for current_user do |f| %>
-  <% if current_user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="user-container">
+  <div>
+    <%=image_tag(current_user.profile_image, class: 'profile-img-lg') %>
+  </div>
+  <%= form_for current_user do |f| %>
+    <% if current_user.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <div class="name-field">
+      <%= f.text_field :name, placeholder: 'Display Name', class: 'input-name' %>
     </div>
+    <div class="actions"><%= f.submit "UPDATE", class: 'update-btn' %></div>
   <% end %>
+  <div class="bottom-nav">
+    <ul>
+      <li>1. Auth</li>
+      <li>2. Edit</li>
+      <li>3. Play</li>
+    </ul>
 
-  <div class="field">
-
-    <%= f.text_field :name, placeholder: 'Display Name' %>
- 
-  <div class="actions"><%= f.submit "UPDATE" %></div>
+  </div>
 </div>
-<% end %>

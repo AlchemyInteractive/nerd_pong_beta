@@ -16,7 +16,6 @@
   text-indent: 200%;
   overflow: hidden;
   background: rgba(255,255,255,0.8) url("http://i.imgur.com/vKRaKDX.png") center no-repeat;
-  border: 1px solid #ddd;
   border-radius: 3px;
   background-size: 80%;
   width: 30px;
@@ -35,20 +34,21 @@
 .mobile a {
   display: block;
 }
-a {
-  background: #eee;
+.hamburger-menu>a {
+  background: #BCBCBC;
   text-align: center;
   padding: 20px 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #666666;
   text-decoration: none;
-  color: #222;
+  color: #666666;
   font-weight: bold;
-}
-a:hover,
-a:active,
-a:focus {
+  a:hover,
+  a:active,
+  a:focus {
   background: #e7e7e7;
+  }
 }
+
 .desktop {
   display: block;
   overflow: hidden;
