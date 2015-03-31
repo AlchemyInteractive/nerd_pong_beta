@@ -1,31 +1,40 @@
 class BracketsController < ApplicationController
   def index
-    # if User.where(name: "jack").empty?
-    #   @user = User.create(name: "jack")
-    # end 
-    @user = User.all
-    b = Bracket.all.detect{|i| i.open == true} 
+    @user = current_user 
+    @b = Bracket.all.detect{|i| i.open == true} 
 
-    if b
-      check = check_for_user_in_bracket(@user, eval(b.bracket))
-
+    if @b
+      check = check_for_user_in_bracket(@user, @b.bracket)
     else
       check = false
     end
 
-    if check == false 
-      @game = Bracket.new(bracket: "{1=>[[]]}")  
-      @game = eval(@game.bracket)
-
-      spot = 0  
+    if @b && check == false 
+      spot = 0 
       while true
-        if @game[1][spot].count < 2 
-          @game[1][spot].push(@user)
+        if @b.bracket[1][spot].count < 2 
+          @b.bracket[1][spot].push(@user)
           break
         else
           spot += 1
         end
       end
+      @b.save
+      @game = @b
+    elsif check == false 
+      @game = Bracket.new( bracket: {1=>[[]]} ) 
+      @bracket = @game.bracket
+      spot = 0 
+      while true
+        if @bracket[1][spot].count < 2 
+          @bracket[1][spot].push(@user)
+          break
+        else
+          spot += 1
+        end
+      end
+      @game.bracket = @bracket
+      @game.save
     elsif check == true 
       render :index     
     else 
@@ -45,6 +54,4 @@ class BracketsController < ApplicationController
     end
     false
   end 
-
-
 end

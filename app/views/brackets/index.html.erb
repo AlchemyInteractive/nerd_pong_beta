@@ -1,7 +1,7 @@
 <main role="main">
 	<h3>1st Round</h3>
 	<div class="bracket">
-	<% @game[1][0][0].each_slice(2) do |p| %>
+	<% @game.bracket[1].each do |p| %>
 	<ul>
 		<div class="player-box">
 			<% p.each do |e| %>
