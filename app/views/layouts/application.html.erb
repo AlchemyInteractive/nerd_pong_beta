@@ -5,11 +5,14 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <% if current_page?('/')%>
 	<body id="background">
+<% elsif current_page?('/brackets') %>
+	<body id="background-none">
 <% else %>
-	<body id="background">
+	<body id="background-goof">
 <% end %>
 <div class="bg">
 <header role="banner">

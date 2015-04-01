@@ -6,7 +6,24 @@ body#background {
 	-webkit-background-size: cover;
 	color: #fff;
 	font-family: 'Open Sans', sans-serif;
-	
+}
+body#background-none {
+	background-color: #000;	
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
+	}
+body#background-goof {
+	background: url(goofbg.jpg) no-repeat 50% 50% fixed;
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
 }
 // Header size
 header {
