@@ -21,7 +21,7 @@
 	</div>
 	<div class="bracket" id=<%="#{@game.id}"%>>
   	<div class="roundone">
-    	<% @game.bracket[1].each do |p| %>
+    	<% @game.bracket[1].each_with_index do |p, index| %>
       	<ul>
       		<div class="player-box">
       			<li>
@@ -30,8 +30,11 @@
       				  <%=p[0].name %>
               <% end %>
       			</li>
-             
-      			<li class="vs">TABLE A</li>
+              <% if index % 2 == 0 %>
+      			    <li class="vs">Table A</li>
+              <% else %>
+                <li class="vs">Table B</li>
+              <% end %>
       			<li>
               <% if p[1] %>
       				  <%= image_tag(p[1].profile_image, class: 'profile-pic-2') %><br>
@@ -42,7 +45,11 @@
       	</ul>
         <div class="modal">
           <span class="close-modal">X</span>
-          <span id="table">TABLE A</span>
+            <% if index % 2 == 0 %>
+                <span id="table">Table A</span>
+              <% else %>
+                <span id="table">Table B</span>
+              <% end %>
           <div class="modal-player-box">
             <% if p[0] %>
               <span class="modal-player-1" id=<%="#{p[0].id}"%>>
@@ -74,7 +81,7 @@
     </div>
   	<div class="roundtwo">
       <% if @game.bracket[2] %>
-      	<% @game.bracket[2].each do |p| %>
+      	<% @game.bracket[2].each_with_index do |p, index| %>
         	<ul>
         		<div class="player-box">
         			<li>
@@ -83,7 +90,11 @@
         				  <%=p[0].name %>
                 <% end %>
         			</li>
-        			<li class="vs">VS.</li>
+        			<% if index % 2 == 0 %>
+                <li class="vs">Table A</li>
+              <% else %>
+                <li class="vs">Table B</li>
+              <% end %>
         			<li>
                 <% if p[1] %>
         				  <%= image_tag(p[1].profile_image, class: 'profile-pic-2') %><br>
@@ -127,7 +138,7 @@
     </div>
     <div class="roundfinal">
       <% if @game.bracket[3] %>
-        <% @game.bracket[3].each do |p| %>
+        <% @game.bracket[3].each_with_index do |p, index| %>
           <ul>
             <div class="player-box">
               <li>
@@ -136,7 +147,11 @@
                   <%=p[0].name %>
                 <% end %>
               </li>
-              <li class="vs">VS.</li>
+              <% if index % 2 == 0 %>
+                <li class="vs">Table A</li>
+              <% else %>
+                <li class="vs">Table B</li>
+              <% end %>
               <li>
                 <% if p[1] %>
                   <%= image_tag(p[1].profile_image, class: 'profile-pic-2') %><br>
