@@ -31,10 +31,17 @@
 .actions {display: inline;}
 
 .bottom-nav {
-	margin-top: 30%;
+	position: relative;
+	top: 500px;
+	margin-left: -30px;
 	text-align: center;
 	li {
+		border-top: 3px solid rgba(192,192,192,0.3);
+		width:100px;
 		display: inline-block;
-		padding: 10px;
+		padding-top: 10px;
+	}
+	li.active {
+		border-top: 3px solid white;
 	}
 }

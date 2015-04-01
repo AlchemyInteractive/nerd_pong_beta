@@ -1,6 +1,6 @@
 
 .mobile {
-  display: none;
+  display: block;
   position: fixed;
   width: 100%;
   top: 0;
@@ -65,11 +65,11 @@
 article {
   padding: 0 30px 15px;
 }
-@media (max-width: 800px) {
-  .mobile {
-    display: block;
-  }
-  .desktop {
-    display: none;
-  }
-}
+// @media (max-width: 800px) {
+//   .mobile {
+//     display: block;
+//   }
+//   .desktop {
+//     display: none;
+//   }
+// }

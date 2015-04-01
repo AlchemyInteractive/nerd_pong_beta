@@ -10,8 +10,10 @@ class BracketsController < ApplicationController
     end
 
     if @b && check == false 
+     
       spot = 0 
       while true
+      
         if @b.bracket[1][spot].count < 2 
           @b.bracket[1][spot].push(@user)
           break
@@ -36,8 +38,10 @@ class BracketsController < ApplicationController
       @game.bracket = @bracket
       @game.save
     elsif check == true 
+      @game = @b
       render :index     
     else 
+      @game = @b
       @nomore = "Cant Play with us"
       render :index 
     end

@@ -1,7 +1,8 @@
-body {
+.bg {
 	background: url(beerpongbg.jpg) no-repeat top;
 	background-size: cover;
-	min-height: 900px;
+	// max-height: 800px;
+
 	color: #fff;
 	font-family: 'Open Sans', sans-serif;
 	
@@ -20,10 +21,20 @@ span.nerd {
 
 .header-text{
 	text-align: center;
+
 }
+@media (max-width: 768px) {
+	.header-text {
+		position: relative;
+		left:10px;
+  	}	
+}
+
+
 // Container for mainpage
 .twitter-container{
-	margin-top: 50%;
+	position: relative;
+	top: 300px;
 	width: 100%;
 	text-align: center;
 	#twit a {

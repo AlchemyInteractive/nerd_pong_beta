@@ -14,3 +14,20 @@
 	max-width: 50px;
 	display: inline;
 }
+.top-nav {
+	position: relative;
+	white-space: nowrap;
+	overflow: hidden;
+	z-index: -1;
+	li {
+		border-top: 3px solid rgba(192,192,192,0.3);
+		width:260px;
+		display: inline-block;
+		padding-top: 10px;
+		margin-right: 4px;
+
+	}
+	li.active {
+		border-top: 3px solid white;
+	}
+}

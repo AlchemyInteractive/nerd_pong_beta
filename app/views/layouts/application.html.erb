@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="bg">
 <header role="banner">
 	<div class="container">
 		<nav role="navigation">
@@ -35,11 +36,13 @@
 	</div>
 </header>
 <%= yield %>
-
+</div>
 </body>
 <script>
 $('button').click(function() {
   $(this).toggleClass('expanded').siblings('div').slideToggle();
 });
 </script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
 </html>
