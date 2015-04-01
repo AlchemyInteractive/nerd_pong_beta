@@ -67,6 +67,7 @@
 	<% end %>
   </div>
 		<div class="roundtwo">
+  <% if @game.bracket[2] %>
 	<% @game.bracket[2].each do |p| %>
 	<ul>
 		<div class="player-box">
@@ -116,6 +117,7 @@
     </div>
   </div>
 	<% end %>
+  <% end %>
   </div>
 	</div>
 </main>
