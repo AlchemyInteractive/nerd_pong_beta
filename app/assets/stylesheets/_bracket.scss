@@ -2,6 +2,15 @@
 	overflow: scroll;
 
 }
+.roundone {
+	position: relative;
+	display: inline-block;
+}
+.roundtwo {
+	position: relative;
+	left: -35px;
+	display: inline-block;
+}
 .player-box {
 	background-color: #666;
 	width: 250px;
@@ -102,7 +111,7 @@
 		display: inline-block;
 		padding-top: 10px;
 		margin-right: 4px;
-
+		text-indent: 12px;
 	}
 	li.active {
 		border-top: 3px solid white;
