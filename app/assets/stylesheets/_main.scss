@@ -22,12 +22,14 @@ span.nerd {
 
 .header-text{
 	text-align: center;
+	z-index: -1;
 
 }
 @media (max-width: 768px) {
 	.header-text {
 		position: relative;
 		left:10px;
+		z-index: -1;
   	}	
 }
 
