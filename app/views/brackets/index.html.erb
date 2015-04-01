@@ -230,11 +230,14 @@ $(document).ready(function() {
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: params,
       success: function(data){
-        alert(data);
+        $.each($('.modal'), function(i, val){
+          $(val).fadeOut(250); 
+        });
+        $('body').fadeOut(250).load(location.href).fadeIn(250);
+        var winner = data["winner"];
       },
       error: function(data){
         console.log(data);
-        alert(data);
       }
     }) 
   }); 

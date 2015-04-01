@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def save_score
-    #begin
+    begin
       @bracket = Bracket.find(params[:data][:bracketId])
       @user1 = User.find(params[:data][:playerOne][:id]) if params[:data][:playerOne][:id]
       @user2 = User.find(params[:data][:playerTwo][:id]) if params[:data][:playerTwo][:id]
@@ -24,11 +24,11 @@ class GamesController < ApplicationController
       else 
         render status: 401
       end
-    #rescue => e
-    #  respond_to do |format|
-    #    format.json {render json: e, status: 401}
-    #  end
-    #end
+    rescue => e
+      respond_to do |format|
+        format.json {render json: e, status: 401}
+      end
+    end
   end
 
   def determine_winner( p1, user1, p2, user2)
