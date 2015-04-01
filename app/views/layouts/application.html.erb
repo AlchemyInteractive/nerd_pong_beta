@@ -20,15 +20,18 @@
 
 			<nav class="mobile">
 			  <button>Menu</button>
-        <% if current_user %>
+
 			  <div class="hamburger-menu">
 			  	<%=link_to 'Home', root_path %>
 			  	<%=link_to 'Bracket', brackets_path %>
-			    <%=link_to 'Settings', edit_user_path(current_user.id) %>
+			  	<% if current_user %>
+				    <%=link_to 'Settings', edit_user_path(current_user.id) %>
+			    <% else %>
+				    <%=link_to 'Log In with Twitter', '/auth/twitter' %>
+			    <% end %>
 			  </div>
-        <% end %>
 			</nav>
-			<!-- <div><% if current_user %> Signed in as <%= current_user.name %><% end %></div> -->
+		
 			<div class="header-text">
 				<span class="nerd">nerd</span><span class="pong">pong</span>
 			</div>
