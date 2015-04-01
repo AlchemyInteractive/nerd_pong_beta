@@ -1,13 +1,25 @@
 .bracket {
-	overflow: scroll;
-
+  white-space: nowrap;
 }
 .roundone {
 	display: inline-block;
 }
 .roundtwo {
-	left: -35px;
+  margin: 0 0 0 -36px;
 	display: inline-block;
+  vertical-align: top;
+  .player-box{
+    margin-top: 70px;
+    margin-bottom: 124px;
+  }
+}
+.roundfinal {
+  margin: 0 0 0 -36px;
+  display: inline-block;
+  vertical-align: top;
+  .player-box{
+    margin-top: 178px;
+  }
 }
 .player-box {
 	background-color: #666;
@@ -40,6 +52,7 @@
   border-radius: 10px;
   border: 2px solid #9f9f9f;
   text-align: center;
+  z-index: 999;
   #table{
     letter-spacing: 5px;
     display: block;
@@ -150,6 +163,8 @@
 	}
 }
 .vs {
-	position: relative;
 	top: -40px;
+  color: rgba(255,255,255,0.5);
+  font-size: 12px;
+  padding: 0 5px;
 }
