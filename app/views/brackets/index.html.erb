@@ -2,8 +2,16 @@
 	<div class="top-nav">
 	    <ul>
 	      <li class="active">1st Round</li>
-	      <li>2nd Round</li>
-	      <li>3rd Round</li>
+	      <% if @game.bracket[2] %>
+	      		<li class="active">2nd Round</li>
+	      <% else %>
+		      	<li>2nd Round</li>
+	      <% end %>
+	      <% if @game.bracket[3] %>
+	      		<li class="active">Final Round</li>
+	      <% else %>
+		      	<li>Final Round</li>
+	      <% end %>
 	    </ul>
   	</div>
 	<div class="bracket">
