@@ -17,13 +17,11 @@
 .profile-pic-1 {
 	border-radius: 25px;
 	max-width: 50px;
-	padding-right: 5px;
 	display: inline;
 }
 .profile-pic-2 {
 	border-radius: 25px;
 	max-width: 50px;
-	padding-left: 5px;
 	display: inline;
 }
 .top-nav {
@@ -41,4 +39,8 @@
 	li.active {
 		border-top: 3px solid white;
 	}
+}
+.vs {
+	position: relative;
+	top: -40px;
 }
