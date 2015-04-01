@@ -6,7 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body id="background">
+<% if current_page?('/')%>
+	<body id="background">
+<% else %>
+	<body id="background">
+<% end %>
 <div class="bg">
 <header role="banner">
 	<div class="container">
