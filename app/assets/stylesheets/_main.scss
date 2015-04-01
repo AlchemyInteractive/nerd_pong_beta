@@ -8,6 +8,11 @@ body#background {
 	font-family: 'Open Sans', sans-serif;
 	
 }
+// Header size
+header {
+	min-width: 230px;
+	padding-bottom: 20px;
+}
 // Main Header Text
 span.nerd {
 		font-family: 'Open Sans', sans-serif;
@@ -20,25 +25,12 @@ span.nerd {
 		font-size: 2em;
 	}
 
-.header-text{
-	text-align: center;
-	z-index: -1;
-
-}
-@media (max-width: 768px) {
-	.header-text {
-		position: relative;
-		left:10px;
-		z-index: -1;
-  	}	
-}
-
-
 // Container for mainpage
 .twitter-container{
 	position: relative;
 	top: 300px;
 	width: 100%;
+	padding-bottom: 255px;
 	text-align: center;
 	#twit a {
 	margin: 0 auto;
@@ -50,4 +42,17 @@ span.nerd {
 #mask {
 	width: 500%;
 	height: 100%;
+}
+
+.header-text{
+	text-align: center;
+	z-index: -1;
+
+}
+@media (max-width: 768px) {
+	.header-text {
+		position: relative;
+		left:10px;
+		z-index: -1;
+  	}	
 }
