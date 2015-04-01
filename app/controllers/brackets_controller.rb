@@ -13,12 +13,21 @@ class BracketsController < ApplicationController
      
       spot = 0 
       while true
-      
-        if @b.bracket[1][spot].count < 2 
-          @b.bracket[1][spot].push(@user)
-          break
+        if @b.bracket[1].count == (spot + 1)
+          if @b.bracket[1][spot].count < 2 
+            @b.bracket[1][spot].push(@user)
+            break
+          else
+            spot += 1
+          end
         else
-          spot += 1
+          @b.bracket[1].push([])
+          if @b.bracket[1][spot].count < 2 
+            @b.bracket[1][spot].push(@user)
+            break
+          else
+            spot += 1
+          end
         end
       end
       @b.save
@@ -45,7 +54,6 @@ class BracketsController < ApplicationController
       @nomore = "Cant Play with us"
       render :index 
     end
-    
   end
 
   def check_for_user_in_bracket(user, bracket)

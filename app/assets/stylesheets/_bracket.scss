@@ -10,6 +10,74 @@
 		text-align: center;
 	}
 }
+.modal{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 70%;
+  width: 90%;
+  max-width: 300px;
+	background-color: #666;
+  display: none;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  text-align: center;
+  #table{
+    letter-spacing: 5px;
+  }
+  #modal-vs{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 35px;
+  }
+  .modal-player-1 {
+    display: inline-block;  
+    width: 30%;
+    .profile-pic-1 {
+	    border-radius: 37.5px;
+	    max-width: 75px;
+	    padding-right: 5px;
+    }
+  }
+  .modal-player-2 {
+    display: inline-block;  
+    width: 30%;
+    .profile-pic-2 {
+	    border-radius: 37.5px;
+	    max-width: 75px;
+	    padding-right: 5px;
+    }
+  }
+}
+.modal-player-score{
+  #final{
+    letter-spacing: 8px;
+  }
+  .input-fields{
+    border: none;
+    font-size: 40px;
+    width: 60px;   
+    height: 60px;
+    color: #fff;
+    background-color: #b3b3b3;
+  }
+  #input-submit{
+    width: 80%;
+    padding-top: 20px; 
+    padding-bottom: 20px; 
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 5px;
+    background-color: #4B849F;
+  }
+}
 .profile-pic-1 {
 	border-radius: 25px;
 	max-width: 50px;

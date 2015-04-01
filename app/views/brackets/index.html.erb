@@ -6,39 +6,88 @@
 	      <li>3rd Round</li>
 	    </ul>
   	</div>
-	<div class="bracket">
+	<div class="bracket" id=<%="#{@game.id}"%>>
 	<% @game.bracket[1].each do |p| %>
 	<ul>
-		<div class="player-box">
-			
+		<div class="player-box"> 
 			<li>
-				<%= image_tag(p[0].profile_image, class: 'profile-pic-1') %><br>
-				<%=p[0].name %>
+        <% if p[0] %>
+				  <%= image_tag(p[0].profile_image, class: 'profile-pic-1') %><br>
+				  <%=p[0].name %>
+        <% end %>
 			</li>
 			<li class="vs">VS.</li>
 			<li>
-				<%= image_tag(p[1].profile_image, class: 'profile-pic-2') %><br>
-				<%=p[1].name %>
-				<!-- <div class="profile-info" style="display: none;">
-					<ul>
-						<li><%#.name %></li>
-						
-					</ul> 
-				</div> -->
+        <% if p[1] %>
+				  <%= image_tag(p[1].profile_image, class: 'profile-pic-2') %><br>
+				  <%=p[1].name %>
+        <% end %>
 			</li>
 		</div>
 	</ul>
+  <div class="modal">
+    <span class="close-modal">X</span>
+    <span id="table">TABLE A</span>
+    <div class="modal-player-box">
+      <% if p[0] %>
+      <span class="modal-player-1" id=<%="#{p[0].id}"%>>
+	        <%= image_tag(p[0].profile_image, class: 'profile-pic-1') %><br>
+			    <%=p[0].name %><br>
+          <%=p[0].game_wins %> - <%=p[0].game_losses %>
+      </span>
+      <% end %>
+      <span id="modal-vs">VS</span>
+      <% if p[1] %>
+      <span class="modal-player-2" id=<%="#{p[1].id}"%>>
+			    <%= image_tag(p[1].profile_image, class: 'profile-pic-2') %><br>
+		      <%=p[1].name %><br>
+          <%=p[1].game_wins %> - <%=p[1].game_losses %>
+      </span>
+      <% end %>
+    </div>
+    <div class="modal-player-score">
+      <span id="final">FINAL SCORE</span>  
+      <form> 
+        <input class="input-fields" type="text" name="player1"> 
+        <span>to</span>
+        <input class="input-fields" type="text" name="player2"><br> 
+        <input id="input-submit" type="submit" value="SAVE SCORE"> 
+      </form>
+    </div>
+  </div>
 	<% end %>
 	</div>
 </main>
 <script>
 $(document).ready(function() {
-
-	$('li').click(
-		function(){
-			$('.profile-info').animate({opacity:'toggle'}, 400);
-	});
+  $('.player-box').on('click', function(index){
+      var index = $('.player-box').index(this);
+     $($('.modal')[index]).fadeIn(250);
+  });
+  
+  $('.close-modal').on('click', function(){
+    $(this).parent().fadeOut(250); 
+  });
+  
+  $('form').on('submit', function(e){
+    e.preventDefault();
+    var index = $('form').index(this);
+    var playerOneId = $($('.modal-player-1')[index]).attr('id'); 
+    var playerTwoId = $($('.modal-player-2')[index]).attr('id'); 
+    var p1Score = $($('input[name=player1')[index]).val();
+    var p2Score = $($('input[name=player2')[index]).val();
+    var bracket = $('.bracket').attr('id'); 
+    var params = {data:{bracketId: bracket, playerOne:{id: playerOneId, score: p1Score}, playerTwo:{id: playerTwoId, score: p2Score }}};
+    $.ajax({
+      url: '/save_score',
+      type: 'POST',
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      data: params,
+      success: function(data){
+        alert(data);
+      }
+    }) 
+  }); 
 });
-
 </script>
 

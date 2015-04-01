@@ -1,6 +1,14 @@
 class User < ActiveRecord::Base
   belongs_to :user_brackets
   has_many :brackets, through: :user_brackets
+  
+  def game_wins
+    self.wins ? self.wins : 0
+  end
+  
+  def game_losses
+    self.losses ? self.losses : 0
+  end
 
   def self.find_or_create_from_auth_hash(auth_hash)
     user = where(provider: auth_hash[:provider], uid: auth_hash[:uid]).first_or_create
