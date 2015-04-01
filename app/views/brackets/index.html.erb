@@ -15,27 +15,40 @@
 	    </ul>
   	</div>
 	<div class="bracket">
-	<% @game.bracket[1].each do |p| %>
-	<ul>
-		<div class="player-box">
-			<li>
-				<%= image_tag(p[0].profile_image, class: 'profile-pic-1') %><br>
-				<%=p[0].name %>
-			</li>
-			<li class="vs">VS.</li>
-			<li>
-				<%= image_tag(p[1].profile_image, class: 'profile-pic-2') %><br>
-				<%=p[1].name %>
-				<!-- <div class="profile-info" style="display: none;">
-					<ul>
-						<li><%#.name %></li>
-						
-					</ul> 
-				</div> -->
-			</li>
+		<div class="roundone">
+			<% @game.bracket[1].each do |p| %>
+			<ul>
+				<div class="player-box">
+					<li>
+						<%= image_tag(p[0].profile_image, class: 'profile-pic-1') %><br>
+						<%=p[0].name %>
+					</li>
+					<li class="vs">VS.</li>
+					<li>
+						<%= image_tag(p[1].profile_image, class: 'profile-pic-2') %><br>
+						<%=p[1].name %>
+					</li>
+				</div>
+			</ul>
+			<% end %>
 		</div>
-	</ul>
-	<% end %>
+		<div class="roundtwo">
+			<% @game.bracket[1].each do |p| %>
+			<ul>
+				<div class="player-box">
+					<li>
+						<%= image_tag(p[0].profile_image, class: 'profile-pic-1') %><br>
+						<%=p[0].name %>
+					</li>
+					<li class="vs">VS.</li>
+					<li>
+						<%= image_tag(p[1].profile_image, class: 'profile-pic-2') %><br>
+						<%=p[1].name %>
+					</li>
+				</div>
+			</ul>
+			<% end %>
+		</div>
 	</div>
 </main>
 <script>
