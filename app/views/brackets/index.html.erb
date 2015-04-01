@@ -7,8 +7,7 @@
 	      <% else %>
 		      	<li>2nd Round</li>
 	      <% end %>
-	      <% if @game.bracket[3] %>
-	      		<li class="active">Final Round</li>
+	      <% if @game.bracket[3] %> <li class="active">Final Round</li>
 	      <% else %>
 		      	<li>Final Round</li>
 	      <% end %>
@@ -134,19 +133,32 @@ $(document).ready(function() {
   
   $('form').on('submit', function(e){
     e.preventDefault();
+    if ($('.roundone').has(this).length > 0){
+      var round = 1;
+    } else if ($('.roundtwo').has(this).length > 0){
+      var round = 2;
+    } else if ($('.roundthree').has(this).length > 0){
+      var round = 3;
+    } else if ($('.roundfour').has(this).length > 0){
+      var round = 4;
+    }
     var index = $('form').index(this);
     var playerOneId = $($('.modal-player-1')[index]).attr('id'); 
     var playerTwoId = $($('.modal-player-2')[index]).attr('id'); 
     var p1Score = $($('input[name=player1')[index]).val();
     var p2Score = $($('input[name=player2')[index]).val();
     var bracket = $('.bracket').attr('id'); 
-    var params = {data:{bracketId: bracket, playerOne:{id: playerOneId, score: p1Score}, playerTwo:{id: playerTwoId, score: p2Score }}};
+    var params = {data:{bracketId: bracket, curr_round: round, playerOne:{id: playerOneId, score: p1Score}, playerTwo:{id: playerTwoId, score: p2Score }}};
     $.ajax({
       url: '/save_score',
       type: 'POST',
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       data: params,
       success: function(data){
+        alert(data);
+      },
+      error: function(data){
+        console.log(data);
         alert(data);
       }
     }) 
