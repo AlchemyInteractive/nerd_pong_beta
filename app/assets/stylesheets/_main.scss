@@ -1,8 +1,9 @@
-.bg {
-	background: url(beerpongbg.jpg) no-repeat top;
+body#background {
+	background: url(beerpongbg.jpg) no-repeat 50% 50% fixed;
 	background-size: cover;
-	// max-height: 800px;
-
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
 	color: #fff;
 	font-family: 'Open Sans', sans-serif;
 	
