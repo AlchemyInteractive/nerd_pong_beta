@@ -34,38 +34,45 @@
       </li>
     </div>
   </ul>
-  <div class="modal">
-    <span class="close-modal">X</span>
-    <span id="table">TABLE A</span>
-    <div class="modal-player-box">
-      <% if p[0] %>
-      <div class="modal-player modal-player-1" id=<%="#{p[0].id}"%>>
-          <%= image_tag(p[0].profile_image, class: 'profile-pic profile-pic-1') %>
-          <span class="player-name"><%=p[0].name %></span>
-          <span class="player-score"><%=p[0].game_wins %> - <%=p[0].game_losses %></span>
+
+  <!-- Modal Begin -->
+  <div class="modal-wrapper">
+    <div class="modal-bg"></div>
+    <div class="modal">
+      <span class="close-modal">X</span>
+      <span id="table">TABLE A</span>
+      <div class="modal-player-box">
+        <% if p[0] %>
+        <div class="modal-player modal-player-1" id=<%="#{p[0].id}"%>>
+            <%= image_tag(p[0].profile_image, class: 'profile-pic profile-pic-1') %>
+            <span class="player-name"><%=p[0].name %></span>
+            <span class="player-score"><%=p[0].game_wins %> - <%=p[0].game_losses %></span>
+        </div>
+        <% end %>
+        <span id="modal-vs">VS</span>
+        <% if p[1] %>
+        <span class="modal-player modal-player-2" id=<%="#{p[1].id}"%>>
+            <%= image_tag(p[1].profile_image, class: 'profile-pic profile-pic-2') %>
+            <span class="player-name"><%=p[1].name %></span>
+            <span class="player-score"><%=p[1].game_wins %> - <%=p[1].game_losses %></span>
+        </span>
+        <% end %>
       </div>
-      <% end %>
-      <span id="modal-vs">VS</span>
-      <% if p[1] %>
-      <span class="modal-player modal-player-2" id=<%="#{p[1].id}"%>>
-          <%= image_tag(p[1].profile_image, class: 'profile-pic profile-pic-2') %>
-          <span class="player-name"><%=p[1].name %></span>
-          <span class="player-score"><%=p[1].game_wins %> - <%=p[1].game_losses %></span>
-      </span>
-      <% end %>
-    </div>
-    <div class="modal-player-score">
-      <span id="final">FINAL SCORE</span>  
-      <form> 
-        <ul>
-          <li><input class="input-fields" type="text" name="player1"> </li>
-          <li><span>to</span></li>
-          <li><input class="input-fields" type="text" name="player2"></li>
-        </ul>
-        <input id="input-submit" type="submit" value="SAVE SCORE"> 
-      </form>
+      <div class="modal-player-score">
+        <span id="final">FINAL SCORE</span>  
+        <form> 
+          <ul>
+            <li><input class="input-fields" type="text" name="player1"> </li>
+            <li><span>to</span></li>
+            <li><input class="input-fields" type="text" name="player2"></li>
+          </ul>
+          <input id="input-submit" type="submit" value="SAVE SCORE"> 
+        </form>
+      </div>
     </div>
   </div>
+  <!-- Modal End -->
+
   <% end %>
   </div>
     <div class="roundtwo">
@@ -88,34 +95,38 @@
       </li>
     </div>
   </ul>
-  <div class="modal">
-    <span class="close-modal">X</span>
-    <span id="table">TABLE A</span>
-    <div class="modal-player-box">
-      <% if p[0] %>
-      <span class="modal-player modal-player-1" id=<%="#{p[0].id}"%>>
-          <%= image_tag(p[0].profile_image, class: 'profile-pic profile-pic-1') %><br>
-          <%=p[0].name %><br>
-          <%=p[0].game_wins %> - <%=p[0].game_losses %>
-      </span>
-      <% end %>
-      <span id="modal-vs">VS</span>
-      <% if p[1] %>
-      <span class="modal-player modal-player-2" id=<%="#{p[1].id}"%>>
-          <%= image_tag(p[1].profile_image, class: 'profile-pic profile-pic-2') %><br>
-          <%=p[1].name %><br>
-          <%=p[1].game_wins %> - <%=p[1].game_losses %>
-      </span>
-      <% end %>
-    </div>
-    <div class="modal-player-score">
-      <span id="final">FINAL SCORE</span>  
-      <form> 
-        <input class="input-fields" type="text" name="player1"> 
-        <span>to</span>
-        <input class="input-fields" type="text" name="player2"><br> 
-        <input id="input-submit" type="submit" value="SAVE SCORE"> 
-      </form>
+
+  <div class="modal-wrapper">
+    <div class="modal-bg"></div>
+    <div class="modal">
+      <span class="close-modal">X</span>
+      <span id="table">TABLE A</span>
+      <div class="modal-player-box">
+        <% if p[0] %>
+        <span class="modal-player modal-player-1" id=<%="#{p[0].id}"%>>
+            <%= image_tag(p[0].profile_image, class: 'profile-pic profile-pic-1') %><br>
+            <%=p[0].name %><br>
+            <%=p[0].game_wins %> - <%=p[0].game_losses %>
+        </span>
+        <% end %>
+        <span id="modal-vs">VS</span>
+        <% if p[1] %>
+        <span class="modal-player modal-player-2" id=<%="#{p[1].id}"%>>
+            <%= image_tag(p[1].profile_image, class: 'profile-pic profile-pic-2') %><br>
+            <%=p[1].name %><br>
+            <%=p[1].game_wins %> - <%=p[1].game_losses %>
+        </span>
+        <% end %>
+      </div>
+      <div class="modal-player-score">
+        <span id="final">FINAL SCORE</span>  
+        <form> 
+          <input class="input-fields" type="text" name="player1"> 
+          <span>to</span>
+          <input class="input-fields" type="text" name="player2"><br> 
+          <input id="input-submit" type="submit" value="SAVE SCORE"> 
+        </form>
+      </div>
     </div>
   </div>
   <% end %>
@@ -127,11 +138,18 @@
 $(document).ready(function() {
   $('.player-box').on('click', function(index){
       var index = $('.player-box').index(this);
-     $($('.modal')[index]).fadeIn(250);
+      var $modal = $($('.modal-wrapper')[index]);
+      console.log("hi")
+      $modal.fadeIn(250);
+      $modal.find('.modal').fadeIn(250);
+      $modal.find('.modal-bg').fadeIn(250);
   });
   
   $('.close-modal').on('click', function(){
-    $(this).parent().fadeOut(250); 
+    var $modal = $(this).parent().parent();
+    $modal.fadeOut(250);
+    $modal.find('.modal').fadeOut(250);
+    $modal.find('.modal-bg').fadeOut(250);
   });
   
   $('form').on('submit', function(e){

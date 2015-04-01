@@ -33,69 +33,91 @@
 		text-align: center;
 	}
 }
-.modal{
+
+
+.modal-wrapper {
+  display:none;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  min-height: 340px;
-  height: 80%;
-  width: 90%;
-  max-width: 300px;
-	background-color: #4a4a4a;
-  display: none;
-  border-radius: 10px;
-  border: 2px solid #9f9f9f;
-  text-align: center;
-  z-index: 999;
-  #table{
-    letter-spacing: 5px;
-    display: block;
-    margin: 5% auto;
-  }
-  #modal-vs{
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 35px;
-  }
-  .modal-player-box {
-    margin: 5px auto;
-  }
-  .modal-player {
-
-    display: inline-block;  
-    width: 30%;
-
-    .profile-pic{
-      display:block;
-      margin: 0 auto;
-      border-radius: 50%;
-      max-width: 75px;
-      padding-right: 5px;
-    }
-    .player-name {
-      display:block;
-      font-weight: 700;
-    }
-    .player-score {
-      display:block;
-      font-weight: 100;
-      letter-spacing: -1px;
-      font-size:12px;
-    }
-  }
-  .close-modal {
-    cursor: pointer;
+  .modal-bg {
     position: absolute;
-    top: 3%;
-    right: 5%; 
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display:none;
+    background: black;
+    opacity: .8;
+  }
+
+  .modal{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    min-height: 340px;
+    height: 80%;
+    width: 90%;
+    max-width: 300px;
+  	background-color: #4a4a4a;
+    display: none;
+    border-radius: 10px;
+    border: 2px solid #9f9f9f;
+    text-align: center;
+    z-index: 999;
+    #table{
+      letter-spacing: 5px;
+      display: block;
+      margin: 5% auto;
+    }
+    #modal-vs{
+      display: inline-block;
+      vertical-align: top;
+      margin-top: 35px;
+    }
+    .modal-player-box {
+      margin: 5px auto;
+    }
+    .modal-player {
+
+      display: inline-block;  
+      width: 30%;
+
+      .profile-pic{
+        display:block;
+        margin: 0 auto;
+        border-radius: 50%;
+        max-width: 75px;
+        padding-right: 5px;
+      }
+      .player-name {
+        display:block;
+        font-weight: 700;
+      }
+      .player-score {
+        display:block;
+        font-weight: 100;
+        letter-spacing: -1px;
+        font-size:12px;
+      }
+    }
+    .close-modal {
+      cursor: pointer;
+      position: absolute;
+      top: 3%;
+      right: 5%; 
+    }
   }
 }
+
 .modal-player-score{
   .margin: 6% auto 3%;
   text-align: center;
