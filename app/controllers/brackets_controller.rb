@@ -1,6 +1,59 @@
 class BracketsController < ApplicationController
   def index
     @user = current_user 
+    @game = Bracket.all.detect{|i| i.open == true} 
+    @game = Bracket.create(bracket: {1=>[]}, open: true) if !@game
+    
+    if !@game.active
+      @game.queue.push(@user) if !@game.queue.include?(@user)
+      @game.save
+    else
+      render :game_on
+    end
+  end
+  
+  def game_on; end
+
+  def start_game
+    @user = current_user 
+    @game = Bracket.all.detect{|i| i.open == true} 
+    if @game.active
+      render :game_on
+      return
+    end
+    @game.active = true
+    players = @game.queue.count
+    matches = (players/2 + players%2) 
+    round = 1 
+
+    while matches >= 1 
+      @game.bracket[round] = [] if !@game.bracket[round]
+      matches.times do
+        @game.bracket[round].push([])
+      end
+      if matches == 1
+        break
+      end
+      round += 1
+      matches = (matches/2 + matches%2)
+    end
+    @game.randomize
+    render :game_on
+  end
+
+  def check_for_user_in_bracket(user, bracket)
+    bracket.each do |k,v| 
+      v.each do |match|
+        if match.include? user 
+          return "already in there"
+        end
+      end
+    end
+    false
+  end 
+  
+  def other
+    @user = current_user 
     @b = Bracket.all.detect{|i| i.open == true} 
 
     if @b
@@ -55,15 +108,4 @@ class BracketsController < ApplicationController
       render :index 
     end
   end
-
-  def check_for_user_in_bracket(user, bracket)
-    bracket.each do |k,v| 
-      v.each do |match|
-        if match.include? user 
-          return "already in there"
-        end
-      end
-    end
-    false
-  end 
 end

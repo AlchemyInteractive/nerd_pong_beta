@@ -1,0 +1,279 @@
+<main role="main">
+  <div class="top-nav">
+      <ul>
+          <li class="active">1st Round</li>
+      <% if @game.bracket[2] %>
+          <li class="active">2nd Round</li>
+      <% else %>
+          <li>2nd Round</li>
+      <% end %>
+      <% if @game.bracket[3] %>
+          <li class="active">Final Round</li>
+      <% else %>
+          <li>Final Round</li>
+      <% end %>
+      <% if @game.bracket[4] %>
+          <li class="active">Champion</li>
+      <% else %>
+          <li>Champion</li>
+      <% end %>
+      </ul>
+    </div>
+  <div class="bracket" id=<%="#{@game.id}"%>>
+    <div class="roundone">
+  <% @game.bracket[1].each_with_index do |p, index| %>
+  <ul>
+    <div class="player-box">
+      <li>
+        <% if p[0] %>
+          <%= image_tag(p[0].profile_image, class: 'profile-pic profile-pic-1') %><br>
+          <%= truncate p[0].name, length: 12, separator: /\w/, omission: "..." %>
+        <% end %>
+      </li>
+      <% if index % 2 == 0 %>
+        <li class="vs">Table A</li>
+      <% else %>
+        <li class="vs">Table B</li>
+      <% end %>
+      <li>
+        <% if p[1] %>
+          <%= image_tag(p[1].profile_image, class: 'profile-pic profile-pic-2') %><br>
+          <%= truncate p[1].name, length: 12, separator: /\w/, omission: "..." %>
+        <% end %>
+      </li>
+    </div>
+  </ul>
+
+  <!-- Modal Begin -->
+  <div class="modal-wrapper">
+    <div class="modal-bg"></div>
+    <div class="modal">
+      <span class="close-modal">X</span>
+      <% if index % 2 == 0 %>
+        <span id="table">Table A</span>
+      <% else %>
+        <span id="table">Table B</span>
+      <% end %>
+      <span class="table">TABLE A</span>
+      <div class="modal-player-box">
+        <% if p[0] %>
+        <div class="modal-player modal-player-1" id=<%="#{p[0].id}"%>>
+            <%= image_tag(p[0].profile_image, class: 'profile-pic profile-pic-1') %>
+            <span class="player-name"><%=truncate p[0].name, length: 12, separator: /\w/, omission: "..."%></span>
+            <span class="player-score"><%=p[0].game_wins %> - <%=p[0].game_losses %></span>
+        </div>
+        <% end %>
+        <span class="modal-vs">VS</span>
+        <% if p[1] %>
+        <span class="modal-player modal-player-2" id=<%="#{p[1].id}"%>>
+            <%= image_tag(p[1].profile_image, class: 'profile-pic profile-pic-2') %>
+            <span class="player-name"><%=truncate p[1].name, length: 12, separator: /\w/, omission: "..."%></span>
+            <span class="player-score"><%=p[1].game_wins %> - <%=p[1].game_losses %></span>
+        </span>
+        <% end %>
+      </div>
+      <div class="modal-player-score">
+        <span class="final">FINAL SCORE</span>  
+        <form> 
+          <ul>
+            <li><input class="input-fields" type="text" name="player1"> </li>
+            <li><span>to</span></li>
+            <li><input class="input-fields" type="text" name="player2"></li>
+          </ul>
+          <input id="input-submit" type="submit" value="SAVE SCORE"> 
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Modal End -->
+
+  <% end %>
+  </div>
+    <div class="roundtwo">
+  <% if @game.bracket[2] %>
+  <% @game.bracket[2].each_with_index do |p, index| %>
+  <ul>
+    <div class="player-box">
+      <li>
+        <% if p[0] %>
+          <%= image_tag(p[0].profile_image, class: 'profile-pic profile-pic-1') %><br>
+          <%= truncate p[0].name, length: 12, separator: /\w/, omission: "..." %>
+        <% end %>
+      </li>
+      <% if index % 2 == 0 %>
+        <li class="vs">Table A</li>
+      <% else %>
+        <li class="vs">Table B</li>
+      <% end %>
+      <li>
+        <% if p[1] %>
+          <%= image_tag(p[1].profile_image, class: 'profile-pic profile-pic-2') %><br>
+          <%= truncate p[1].name, length: 12, separator: /\w/, omission: "..." %>
+        <% end %>
+      </li>
+    </div>
+  </ul>
+
+  <div class="modal-wrapper">
+    <div class="modal-bg"></div>
+    <div class="modal">
+      <span class="close-modal">X</span>
+      <% if index % 2 == 0 %>
+        <span id="table">Table A</span>
+      <% else %>
+        <span id="table">Table B</span>
+      <% end %>
+      <div class="modal-player-box">
+        <% if p[0] %>
+        <span class="modal-player modal-player-1" id=<%="#{p[0].id}"%>>
+            <%= image_tag(p[0].profile_image, class: 'profile-pic profile-pic-1') %><br>
+            <span class="player-name"><%=truncate p[0].name, length: 12, separator: /\w/, omission: "..."%></span>
+            <%=p[0].game_wins %> - <%=p[0].game_losses %>
+        </span>
+        <% end %>
+        <span class="modal-vs">VS</span>
+        <% if p[1] %>
+        <span class="modal-player modal-player-2" id=<%="#{p[1].id}"%>>
+            <%= image_tag(p[1].profile_image, class: 'profile-pic profile-pic-2') %><br>
+            <span class="player-name"><%=truncate p[1].name, length: 12, separator: /\w/, omission: "..."%></span>
+            <%=p[1].game_wins %> - <%=p[1].game_losses %>
+        </span>
+        <% end %>
+      </div>
+      <div class="modal-player-score">
+        <span id="final">FINAL SCORE</span>  
+        <form> 
+          <input class="input-fields" type="text" name="player1"> 
+          <span>to</span>
+          <input class="input-fields" type="text" name="player2"><br> 
+          <input id="input-submit" type="submit" value="SAVE SCORE"> 
+        </form>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+  </div>
+  <div class="roundfinal">
+  <% if @game.bracket[3] %>
+  <% @game.bracket[3].each_with_index do |p, index| %>
+  <ul>
+    <div class="player-box">
+      <li>
+        <% if p[0] %>
+          <%= image_tag(p[0].profile_image, class: 'profile-pic profile-pic-1') %><br>
+          <%= truncate p[0].name, length: 12, separator: /\w/, omission: "..." %>
+        <% end %>
+      </li>
+      <% if index % 2 == 0 %>
+        <li class="vs">Table A</li>
+      <% else %>
+        <li class="vs">Table B</li>
+      <% end %>
+      <li>
+        <% if p[1] %>
+          <%= image_tag(p[1].profile_image, class: 'profile-pic profile-pic-2') %><br>
+          <%= truncate p[1].name, length: 12, separator: /\w/, omission: "..." %>
+        <% end %>
+      </li>
+    </div>
+  </ul>
+
+  <div class="modal-wrapper">
+    <div class="modal-bg"></div>
+    <div class="modal">
+      <span class="close-modal">X</span>
+      <% if index % 2 == 0 %>
+        <span id="table">Table A</span>
+      <% else %>
+        <span id="table">Table B</span>
+      <% end %>
+      <div class="modal-player-box">
+        <% if p[0] %>
+        <span class="modal-player modal-player-1" id=<%="#{p[0].id}"%>>
+            <%= image_tag(p[0].profile_image, class: 'profile-pic profile-pic-1') %><br>
+            <span class="player-name"><%=truncate p[0].name, length: 12, separator: /\w/, omission: "..."%></span>
+            <%=p[0].game_wins %> - <%=p[0].game_losses %>
+        </span>
+        <% end %>
+        <span class="modal-vs">VS</span>
+        <% if p[1] %>
+        <span class="modal-player modal-player-2" id=<%="#{p[1].id}"%>>
+            <%= image_tag(p[1].profile_image, class: 'profile-pic profile-pic-2') %><br>
+            <span class="player-name"><%=truncate p[1].name, length: 12, separator: /\w/, omission: "..."%></span>
+            <%=p[1].game_wins %> - <%=p[1].game_losses %>
+        </span>
+        <% end %>
+      </div>
+      <div class="modal-player-score">
+        <span id="final">FINAL SCORE</span>  
+        <form> 
+          <input class="input-fields" type="text" name="player1"> 
+          <span>to</span>
+          <input class="input-fields" type="text" name="player2"><br> 
+          <input id="input-submit" type="submit" value="SAVE SCORE"> 
+        </form>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+  </div>
+  </div>
+</main>
+<script>
+$(document).ready(function() {
+  $('.player-box').on('click', function(index){
+      var index = $('.player-box').index(this);
+      var $modal = $($('.modal-wrapper')[index]);
+      $modal.fadeIn(250);
+      $modal.find('.modal').fadeIn(250);
+      $modal.find('.modal-bg').fadeIn(250);
+  });
+  
+  $('.close-modal').on('click', function(){
+    var $modal = $(this).parent().parent();
+    $modal.fadeOut(250);
+    $modal.find('.modal').fadeOut(250);
+    $modal.find('.modal-bg').fadeOut(250);
+  });
+  
+  $('form').on('submit', function(e){
+    e.preventDefault();
+    if ($('.roundone').has(this).length > 0){   
+      var round = 1;   
+    } else if ($('.roundtwo').has(this).length > 0){   
+      var round = 2;   
+    } else if ($('.roundfinal').has(this).length > 0){   
+      var round = 3;   
+    } else if ($('.champion').has(this).length > 0){    
+      var round = 4;   
+    }
+    var index = $('form').index(this);
+    var playerOneId = $($('.modal-player-1')[index]).attr('id'); 
+    var playerTwoId = $($('.modal-player-2')[index]).attr('id'); 
+    var p1Score = $($('input[name=player1')[index]).val();
+    var p2Score = $($('input[name=player2')[index]).val();
+    var bracket = $('.bracket').attr('id'); 
+    var params = {data:{bracketId: bracket, curr_round: round, playerOne:{id: playerOneId, score: p1Score}, playerTwo:{id: playerTwoId, score: p2Score }}};
+    $.ajax({
+      url: '/save_score',
+      type: 'POST',
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      data: params,
+      success: function(data){
+        $.each($('.modal-wrapper'), function(i, val){
+          $(val).fadeOut(250); 
+          $(val).find('.modal').fadeOut(250);
+          $(val).find('.modal-bg').fadeOut(250);
+        });
+        $('body').fadeOut(250).load(location.href).fadeIn(250);
+        var winner = data["winner"];
+      },
+      error: function(data){
+        console.log(data);
+      }
+    }) 
+  }); 
+});
+</script>

@@ -15,10 +15,11 @@
     <% end %>
     
     <div class="name-field">
-      <%= f.text_field :name, placeholder: 'Display Name', class: 'input-name' %>
+      <%= f.text_field :name, placeholder: current_user.name, class: 'input-name' %>
     </div>
     <div class="actions"><%= f.submit "UPDATE", class: 'update-btn' %></div>
   <% end %>
+  <%= button_to "CONTINUE TO PLAY", brackets_path, class: 'play-btn', method: 'get' %>
   <div class="bottom-nav">
     <ul>
       <li class="active">1. Auth</li>

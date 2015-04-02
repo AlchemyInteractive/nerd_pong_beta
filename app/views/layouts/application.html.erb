@@ -11,7 +11,9 @@
 </head>
 <% if current_page?('/')%>
 	<body id="background">
-<% elsif current_page?('/brackets') %>
+<% elsif current_page?('/game_on') %>
+	<body id="background-none">
+<% elsif current_page?('/start_game') %>
 	<body id="background-none">
 <% else %>
 	<body id="background-goof">
