@@ -44,11 +44,10 @@ span.nerd {
 
 // Container for mainpage
 .twitter-container{
-	position: relative;
-	top: 30%;
+	position: fixed;
 	width: 100%;
-	padding-bottom: 255px;
 	text-align: center;
+	top: 40%;
 	#twit a {
 	margin: 0 auto;
 	width:90%;

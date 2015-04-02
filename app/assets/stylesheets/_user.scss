@@ -34,20 +34,19 @@
 .actions {display: inline;}
 
 .bottom-nav {
-	position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  position: absolute;
+  bottom: 20%;
+  left: -10px;
 	text-align: center;
 	li {
 		border-top: 3px solid rgba(192,192,192,0.3);
 		width:100px;
 		display: inline-block;
-		padding-top: 10px;
+		text-align: center;
+		color: rgba(192,192,192,0.3);
 	}
 	li.active {
 		border-top: 3px solid white;
+		color: #fff;
 	}
 }
