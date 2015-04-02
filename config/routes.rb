@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :brackets
 
-  get '/auth/twitter/callback', to: 'sessions#create'
+  get '/auth/:provider/callback', to: 'sessions#create'
   get '/game_on', to: 'brackets#game_on', as: :game_on
   match '/start_game', to: 'brackets#start_game', as: :start_game, via: [:get, :post]
   post '/save_score', to: 'games#save_score'
