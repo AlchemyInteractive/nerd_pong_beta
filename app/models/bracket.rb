@@ -7,6 +7,7 @@ class Bracket < ActiveRecord::Base
   
   def randomize
     queue.shuffle!.each do |user|
+      user.hide_columns
       spot = 0 
       while true
         if bracket[1][spot].count < 2 

@@ -2,6 +2,13 @@ class User < ActiveRecord::Base
   belongs_to :user_brackets
   has_many :brackets, through: :user_brackets
   
+  def hide_columns
+    [:token, :secret].each do |c|
+      send("#{c}=", nil)
+    end
+    self
+  end
+  
   def game_wins
     self.wins ? self.wins : 0
   end

@@ -5,7 +5,7 @@ class BracketsController < ApplicationController
     @game = Bracket.create(bracket: {1=>[]}, open: true) if !@game
     
     if !@game.active
-      @game.queue.push(@user) if !@game.queue.include?(@user)
+      @game.queue.push(@user.hide_columns) if !@game.queue.include?(@user)
       @game.save
     else
       render :game_on
